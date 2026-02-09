@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    /**
+     * Security Rules for HRMS Lite
+     * In this prototype, we allow all reads and writes to ensure
+     * smooth operation during the initial deployment phase.
+     */
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
